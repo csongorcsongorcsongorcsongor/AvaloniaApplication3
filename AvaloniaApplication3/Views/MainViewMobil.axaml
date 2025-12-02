@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="1200"
+                          xmlns:card="clr-namespace:AvaloniaApplication3"
+
+             x:Class="AvaloniaApplication3.MainViewMobil">
+<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" VerticalAlignment="Center"  Grid.Row="0" Content="Name:"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Width="300" Height="25" Text="{Binding Name}"/>
+
+        <Label Grid.Column="0" VerticalAlignment="Center"  Grid.Row="1" Content="Email:"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Width="300" Height="25" Text="{Binding Email}"/>
+
+        <Label Grid.Column="0" VerticalAlignment="Center"  Grid.Row="2" Content="Age:"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Width="300" Height="25" Text="{Binding Age}"/>
+
+        <Label Grid.Column="0" VerticalAlignment="Center"  Grid.Row="3" Content="Height:"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Width="300" Height="25" Text="{Binding Height}"/>
+
+
+        <Button Grid.Column="1" Grid.Row="4" Content="Add" Command="{Binding AddPersonCommand}"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="5" Grid.RowSpan="4">
+			<StackPanel>
+				<ItemsControl ItemsSource="{Binding People}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate>
+							<card:PersonCard/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

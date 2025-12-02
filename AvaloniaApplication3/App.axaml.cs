@@ -22,20 +22,18 @@ public partial class App : Application
         BindingPlugins.DataValidators.RemoveAt(0);
 
         MainModel model = new MainModel();
-        MainViewModel viewModel = new MainViewModel(model);
-
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = viewModel
+                DataContext = new MainViewModel(model)
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
             {
-                DataContext = viewModel
+                DataContext = new MainViewModel(model)
             };
         }
 
