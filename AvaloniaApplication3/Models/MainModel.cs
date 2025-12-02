@@ -18,9 +18,7 @@ namespace AvaloniaApplication3.Models
         public MainModel() 
         {
             random = new Random();
-            for (int i = 0; i < 3; i++) { 
-            GeneratePeople();
-            }
+           
         }
 
         public void GeneratePeople()
@@ -29,7 +27,9 @@ namespace AvaloniaApplication3.Models
             string email = emails[random.Next(emails.Length)];
             string age = ages[random.Next(ages.Length)];
             string gender = genders[random.Next(genders.Length)];
-            Person person = new Person(name,string.Empty,string.Empty,string.Empty);
+
+            Person person = new Person(name, email, age, gender);
+
             CreatedPerson.Invoke(this, new PersonEventArgs(person));
         }
     }

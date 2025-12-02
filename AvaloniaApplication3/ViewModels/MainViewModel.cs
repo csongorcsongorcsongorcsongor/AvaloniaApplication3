@@ -22,6 +22,11 @@ public partial class MainViewModel : ViewModelBase
         People = new ObservableCollection<Person>();
         AddPersonCommand = new RelayCommand(AddPerson);
 
+        for (int i = 0; i < 3; i++)
+        {
+            _mainModel.GeneratePeople();
+        }
+
     }
     private void ModelCreatedPerson(object? sender, PersonEventArgs args)
     {
